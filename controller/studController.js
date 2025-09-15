@@ -1,4 +1,4 @@
-import student from '../model/studmodel.js';
+import student from '../model/studModel.js';
 
 class StudentController {
     // CREATE A NEW STUDENT OR MULTIPLE STUDENTS
@@ -13,8 +13,8 @@ class StudentController {
                 const newStudent = new student(req.body);
 
                 // Check if student with same id already exists (only if id is provided)
-                if (req.body.id) {
-                    const studentExist = await student.findOne({ id: req.body.id });
+                if (req.body._id) {
+                    const studentExist = await student.findOne({ id: req.body._id });
                     if (studentExist) {
                         return res.status(400).json({ message: "Student already exists." });
                     }
